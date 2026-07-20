@@ -1,10 +1,4 @@
-import {
-  View,
-  Text,
-  
-  StyleSheet,
-  useWindowDimensions,
-} from "react-native";
+import { View, Text, StyleSheet, useWindowDimensions } from "react-native";
 
 export default function Index() {
   const { width } = useWindowDimensions();
