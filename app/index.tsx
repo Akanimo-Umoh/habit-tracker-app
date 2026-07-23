@@ -6,12 +6,14 @@ import {
   useWindowDimensions,
   FlatList,
   Pressable,
+  TextInput,
 } from "react-native";
 
 export default function Index() {
   const { width } = useWindowDimensions();
   const ctnWidth = width * 0.9;
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [name, setName] = useState("");
 
   const habits = [
     { id: "1", name: "Drink Water", streak: 5 },
@@ -46,6 +48,15 @@ export default function Index() {
           }}
         />
       </View>
+
+      <TextInput
+        value={name}
+        onChangeText={setName}
+        placeholder="Habit name"
+        style={styles.input}
+        keyboardType={"default"}
+        secureTextEntry={true}
+      />
     </View>
   );
 }
@@ -61,8 +72,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 16,
     borderRadius: 12,
-    borderWidth: 2,
-    borderColor: "transparent",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.08,
@@ -78,7 +87,7 @@ const styles = StyleSheet.create({
   title: { fontSize: 16, fontWeight: "600" },
   streak: { fontSize: 14 },
   selectedCard: {
-    borderColor: "#2563eb",
     backgroundColor: "#eff6ff",
   },
+  input: { borderWidth: 1, borderRadius: 12, borderColor: "#ccc", width: 100 },
 });
